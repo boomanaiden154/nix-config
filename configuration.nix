@@ -84,6 +84,7 @@
       pkgs.discord
       pkgs.zotero
       pkgs.sonixd
+      pkgs.gimp
     ];
 
     programs.git = {
