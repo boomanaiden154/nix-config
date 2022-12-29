@@ -83,6 +83,10 @@
       pkgs.zotero
       pkgs.sonixd
       pkgs.gimp
+      pkgs.clang_14
+      pkgs.linuxPackages_latest.perf
+      pkgs.rstudio
+      pkgs.rPackages.tidyverse
     ];
 
     programs.git = {
