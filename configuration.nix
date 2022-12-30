@@ -72,7 +72,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.aiden = { pkgs, ... }: {
+  home-manager.users.aiden = { pkgs, ... }: with pkgs;
+    let
+      RStudio = pkgs.rstudioWrapper.override {
+        packages = with pkgs.rPackages; [
+          tidyverse
+          corpcor
+        ];
+      };
+    in {
     home.stateVersion = "23.05";
 
     nixpkgs.config.allowUnfree = true;
@@ -85,8 +93,8 @@
       pkgs.gimp
       pkgs.clang_14
       pkgs.linuxPackages_latest.perf
-      pkgs.rstudio
-      pkgs.rPackages.tidyverse
+      RStudio
+      pkgs.kate
     ];
 
     programs.git = {
